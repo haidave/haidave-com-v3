@@ -9,11 +9,11 @@
   "editor.formatOnSave": true,
   // Hide unnecessary filer/folders in the tree
   "files.exclude": {
-    "**/.git": false,
-    "**/.DS_Store": false,
-    "**/*.log": false,
-    ".eslintcache": false,
-    "tsconfig.tsbuildinfo": false
+    "**/.git": true,
+    "**/.DS_Store": true,
+    "**/*.log": true,
+    ".eslintcache": true,
+    "tsconfig.tsbuildinfo": true
   },
   // Recommended typescript plugin from Next.js
   "typescript.tsdk": "node_modules/typescript/lib",
