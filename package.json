@@ -6,7 +6,12 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "format": "prettier --check .",
+    "format:fix": "prettier --write .",
+    "format:validate": "prettier --list-different .",
+    "typecheck": "tsc --project ./tsconfig.json",
+    "prepare": "husky"
   },
   "dependencies": {
     "react": "19.0.0-rc-02c0e824-20241028",
@@ -14,13 +19,28 @@
     "next": "15.0.2"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@commitlint/cli": "^19.5.0",
+    "@commitlint/config-conventional": "^19.5.0",
+    "@ianvs/prettier-plugin-sort-imports": "^4.4.0",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "postcss": "^8",
-    "tailwindcss": "^3.4.1",
+    "@typescript-eslint/parser": "^8.13.0",
+    "autoprefixer": "^10.4.20",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
     "eslint": "^8",
-    "eslint-config-next": "15.0.2"
+    "eslint-config-next": "15.0.2",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-config-turbo": "^2.2.3",
+    "eslint-plugin-tailwindcss": "^3.17.5",
+    "husky": "^9.1.6",
+    "lint-staged": "^15.2.10",
+    "postcss": "^8",
+    "prettier": "^3.3.3",
+    "tailwind-merge": "^2.5.4",
+    "tailwindcss": "^3.4.1",
+    "tailwindcss-animate": "^1.0.7",
+    "typescript": "^5"
   }
 }
