@@ -15,7 +15,8 @@ const ThemeSwitcher = () => {
   }, [])
 
   if (!mounted) {
-    return null
+    // Prevent layout shift
+    return <div className="size-7" />
   }
 
   if (theme === 'dark') {

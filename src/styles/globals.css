@@ -6,13 +6,35 @@
 @layer base {
   :root {
     /* Backgrounds */
-    --bg-primary: #000b00;
+    --bg-primary: #ffffff;
+    --bg-primary-reverse: #000000;
 
     /* Borders */
-    --border-primary: rgba(255, 255, 255, 0.5);
+    --border-primary: #9ca3af;
 
     /* Text */
-    --text-primary: #ededed;
+    --text-primary: #000000;
+    --text-primary-reverse: #ffffff;
+    --text-secondary: #374151;
+    --text-tertiary: #6b7280;
+
+    /* Box Shadow */
+    --shadow-focus: 0 0 0 2px var(--bg-primary), 0 0 0 3px var(--text-primary);
+  }
+
+  .dark {
+    /* Backgrounds */
+    --bg-primary: #000000;
+    --bg-primary-reverse: #ffffff;
+
+    /* Borders */
+    --border-primary: #444444;
+
+    /* Text */
+    --text-primary: #ffffff;
+    --text-primary-reverse: #000000;
+    --text-secondary: #d1d5db;
+    --text-tertiary: #666666;
 
     /* Box Shadow */
     --shadow-focus: 0 0 0 2px var(--bg-primary), 0 0 0 3px var(--text-primary);
@@ -26,7 +48,7 @@
   box-sizing: border-box;
   border-width: 0;
   border-style: solid;
-  border-color: hsl(var(--border-primary));
+  border-color: var(--border-primary);
 }
 
 * {
@@ -42,8 +64,9 @@ body {
 body {
   /* https://www.joshwcomeau.com/css/custom-css-reset/#digit-tweaking-line-height */
   line-height: calc(1em + 0.5rem);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  /* Commented because of Geist Mono looking better without it */
+  /* Also good article about this https://dbushell.com/2024/11/05/webkit-font-smoothing/ */
+  /* -webkit-font-smoothing: antialiased; */
 }
 
 img,
@@ -91,4 +114,9 @@ h6 {
 #root,
 #__next {
   isolation: isolate;
+}
+
+::selection {
+  background-color: var(--bg-primary-reverse);
+  color: var(--text-primary-reverse);
 }
