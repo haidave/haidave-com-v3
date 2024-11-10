@@ -2,9 +2,6 @@
 
 import { usePathname } from 'next/navigation'
 
-import { ROUTES } from '@/config/routes'
-import { cn } from '@/lib/utils'
-
 import { Link } from '../../link'
 
 type HeaderLinkProps = {
