@@ -32,5 +32,6 @@ module.exports = {
       importOrderMergeDuplicateImports: true,
       importOrderCombineTypeAndValueImports: true,
     },
+    'prettier-plugin-tailwindcss',
   ],
 }
