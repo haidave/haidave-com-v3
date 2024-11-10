@@ -20,9 +20,13 @@ module.exports = {
       },
       textColor: {
         primary: 'var(--text-primary)',
+        'primary-reverse': 'var(--text-primary-reverse)',
+        secondary: 'var(--text-secondary)',
+        tertiary: 'var(--text-tertiary)',
       },
       backgroundColor: {
         primary: 'var(--bg-primary)',
+        'primary-reverse': 'var(--bg-primary-reverse)',
       },
       borderColor: {
         primary: 'var(--border-primary)',
