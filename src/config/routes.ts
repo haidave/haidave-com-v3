@@ -3,6 +3,7 @@ const ROUTES = {
   about: '/about',
   craft: '/craft',
   notes: '/notes',
+  note: (slug: string) => `/notes/${slug}`,
 } as const
 
 export { ROUTES }
