@@ -8,6 +8,7 @@
     /* Backgrounds */
     --bg-primary: #ffffff;
     --bg-primary-reverse: #000000;
+    --bg-secondary: #f3f4f6;
 
     /* Borders */
     --border-primary: #9ca3af;
@@ -26,6 +27,7 @@
     /* Backgrounds */
     --bg-primary: #000000;
     --bg-primary-reverse: #ffffff;
+    --bg-secondary: #111111;
 
     /* Borders */
     --border-primary: #444444;
