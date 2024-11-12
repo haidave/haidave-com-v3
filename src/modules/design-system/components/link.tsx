@@ -22,7 +22,7 @@ export const Link = ({ href, isExternal, isActive, children, className }: LinkPr
       className={cn(
         'group relative inline-flex items-center',
         'transition-all',
-        'decoration-dashed underline-offset-4 hover:text-primary hover:underline',
+        'text-secondary decoration-dashed underline-offset-4 hover:text-primary hover:underline',
         isActive && 'text-primary underline decoration-solid',
         'focus-visible:shadow-focus focus-visible:outline-0',
         className

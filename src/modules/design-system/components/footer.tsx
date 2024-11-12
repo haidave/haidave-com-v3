@@ -13,7 +13,7 @@ const Footer = () => {
     <footer className="mt-8 flex items-center justify-between">
       <div className="flex gap-4">
         {SOCIALS.map((item) => (
-          <Link key={item.name} href={item.link}>
+          <Link key={item.name} isExternal href={item.link}>
             {item.name}
           </Link>
         ))}
