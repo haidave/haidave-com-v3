@@ -1,9 +1,4 @@
-'use client'
-
-import { usePathname } from 'next/navigation'
-
 import { ROUTES } from '@/config/routes'
-import { cn } from '@/lib/utils'
 import { Link } from '@/modules/design-system/components/link'
 
 import { HeaderLink } from './parts/header-link'
@@ -15,13 +10,10 @@ const HEADER_LINKS = [
 ]
 
 const Header = () => {
-  const pathname = usePathname()
-  const isHome = pathname === ROUTES.home
-
   return (
     <header className="mb-8 flex justify-between">
       <div>
-        <Link href={ROUTES.home} className={cn('text-base font-bold text-primary', isHome && 'hover:no-underline')}>
+        <Link href={ROUTES.home} className="text-base font-bold text-primary">
           haidave
         </Link>
         <p className="text-xs text-tertiary">prague, czechia</p>
