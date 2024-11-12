@@ -27,6 +27,7 @@ module.exports = {
       backgroundColor: {
         primary: 'var(--bg-primary)',
         'primary-reverse': 'var(--bg-primary-reverse)',
+        secondary: 'var(--bg-secondary)',
       },
       borderColor: {
         primary: 'var(--border-primary)',
