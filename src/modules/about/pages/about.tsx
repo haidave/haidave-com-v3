@@ -30,7 +30,7 @@ const TOOLS = [
 
 const AboutPage = () => {
   return (
-    <main className="grid gap-8 text-sm">
+    <main className="grid gap-8">
       <section className="space-y-2">
         <h2 className="font-semibold text-primary">me</h2>
         <p className="text-secondary">

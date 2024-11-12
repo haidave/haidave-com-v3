@@ -19,7 +19,7 @@ const STACK = [
 
 const HomePage = () => {
   return (
-    <main className="grid gap-8 text-sm">
+    <main className="grid gap-8">
       <section>
         <p className="text-secondary">
           Obsessed with building pixel-perfect and polished interfaces that are also accessible and intuitive.

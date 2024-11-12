@@ -21,10 +21,10 @@ const Header = () => {
   return (
     <header className="mb-8 flex justify-between">
       <div>
-        <Link href={ROUTES.home} className={cn('font-bold text-primary', isHome && 'hover:no-underline')}>
+        <Link href={ROUTES.home} className={cn('text-base font-bold text-primary', isHome && 'hover:no-underline')}>
           haidave
         </Link>
-        <p className="text-tertiary">prague, czechia</p>
+        <p className="text-xs text-tertiary">prague, czechia</p>
       </div>
 
       <ul className="flex gap-4">

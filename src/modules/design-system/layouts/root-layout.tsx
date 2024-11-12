@@ -9,7 +9,7 @@ import { geistMono } from '../theme/fonts'
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${geistMono.variable} bg-primary font-mono text-primary`}>
+      <body className={`${geistMono.variable} bg-primary font-mono text-sm text-primary`}>
         <Providers>
           <div className="mx-auto w-full max-w-[680px] p-4 pt-16">
             <Header />
