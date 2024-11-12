@@ -10,7 +10,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
     <html lang="en" suppressHydrationWarning>
       <body className={`${geistMono.variable} bg-primary font-mono text-primary`}>
         <Providers>
-          <div className="mx-auto mt-16 w-full max-w-[680px] p-4">
+          <div className="mx-auto w-full max-w-[680px] p-4 pt-16">
             <Header />
             {children}
           </div>
