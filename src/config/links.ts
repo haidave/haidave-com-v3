@@ -4,6 +4,7 @@ const LINKS = {
   linkedin: 'https://www.linkedin.com/in/haidave/',
   strv: 'https://www.strv.com',
   everbase: 'https://www.everbase.io',
+  dentsu: 'https://www.dentsucreative.com/location/prague',
 } as const
 
 export { LINKS }
