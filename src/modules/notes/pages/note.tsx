@@ -9,7 +9,7 @@ const generateStaticParams = () => {
   return getAllSlugs('notes')
 }
 
-const generateMetadata = async ({ params }: { params: Promise<{ slug: string }> | { slug: string } }) => {
+const generateMetadata = async ({ params }: { params: Promise<{ slug: string }> }) => {
   const resolvedParams = await params
   const component = await getDocumentBySlug('notes', resolvedParams.slug)
 
@@ -22,7 +22,7 @@ export const metadata = {
   title: 'Notes',
 }
 
-const NotePage = async ({ params }: { params: Promise<{ slug: string }> | { slug: string } }) => {
+const NotePage = async ({ params }: { params: Promise<{ slug: string }> }) => {
   const resolvedParams = await params
   const note = await getDocumentBySlug('notes', resolvedParams.slug)
 
