@@ -21,7 +21,7 @@ const Header = () => {
   return (
     <header className="mb-8 flex justify-between">
       <div>
-        <Link href={ROUTES.home} className={cn('font-bold', isHome && 'hover:no-underline')}>
+        <Link href={ROUTES.home} className={cn('font-bold text-primary', isHome && 'hover:no-underline')}>
           haidave
         </Link>
         <p className="text-tertiary">prague, czechia</p>
