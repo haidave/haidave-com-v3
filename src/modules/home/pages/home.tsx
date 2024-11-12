@@ -1,6 +1,5 @@
 import { LINKS } from '@/config/links'
 import { Link } from '@/modules/design-system/components/link'
-import { ThemeSwitcher } from '@/modules/design-system/components/theme-switcher'
 
 const INTERESTS = ['Street Photography', 'Minimalism', 'UI/UX', 'Self-Development', 'Bouldering']
 
@@ -16,12 +15,6 @@ const STACK = [
   'Framer Motion',
   'Tailwind CSS',
   'shadcn/ui',
-]
-
-const SOCIALS = [
-  { name: '𝕏', link: LINKS.x },
-  { name: 'GitHub', link: LINKS.github },
-  { name: 'LinkedIn', link: LINKS.linkedin },
 ]
 
 const HomePage = () => {
@@ -76,18 +69,6 @@ const HomePage = () => {
           ))}
         </ul>
       </section>
-
-      <footer className="flex items-center justify-between">
-        <div className="flex gap-4">
-          {SOCIALS.map((item) => (
-            <Link key={item.name} href={item.link}>
-              {item.name}
-            </Link>
-          ))}
-        </div>
-
-        <ThemeSwitcher />
-      </footer>
     </main>
   )
 }

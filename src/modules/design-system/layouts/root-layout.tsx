@@ -2,6 +2,7 @@ import '@/styles/globals.css'
 
 import { Providers } from '@/lib/providers/providers'
 
+import { Footer } from '../components/footer'
 import { Header } from '../components/header/header'
 import { geistMono } from '../theme/fonts'
 
@@ -13,6 +14,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
           <div className="mx-auto w-full max-w-[680px] p-4 pt-16">
             <Header />
             {children}
+            <Footer />
           </div>
         </Providers>
       </body>
