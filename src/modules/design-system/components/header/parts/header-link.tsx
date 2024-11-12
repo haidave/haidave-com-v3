@@ -15,7 +15,7 @@ const HeaderLink = ({ href, label }: HeaderLinkProps) => {
   const isActive = pathname.includes(href)
 
   return (
-    <li className="text-sm text-secondary">
+    <li className="text-secondary">
       <Link href={href} isActive={isActive}>
         {label}
       </Link>
