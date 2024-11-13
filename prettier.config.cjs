@@ -5,6 +5,7 @@ module.exports = {
   semi: false,
   singleQuote: true,
   tabWidth: 2,
+  proseWrap: 'always',
   importOrder: [
     '^(react/(.*)$)|^(react$)',
     '^(next/(.*)$)|^(next$)',
