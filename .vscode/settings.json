@@ -7,6 +7,10 @@
   },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
+  "prettier.documentSelectors": ["**/*.mdx"],
+  "[mdx]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   // Hide unnecessary filer/folders in the tree
   "files.exclude": {
     "**/.git": true,

@@ -2,6 +2,7 @@ import type { ComponentPropsWithoutRef } from 'react'
 import React from 'react'
 import type { MDXComponents } from 'mdx/types'
 
+import { BlockQuote } from '@/modules/design-system/components/blockquote'
 import { CopyToClipboard } from '@/modules/design-system/components/copy-to-clipboard'
 
 interface FigureProps extends ComponentPropsWithoutRef<'figure'> {
@@ -49,4 +50,6 @@ export const components: MDXComponents = {
   },
 
   pre: ({ ...props }) => <pre className="bg-subtle dark relative block py-6 [&>code]:grid" {...props} />,
+
+  BlockQuote: BlockQuote,
 }
