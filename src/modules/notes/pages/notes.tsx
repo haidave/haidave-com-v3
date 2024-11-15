@@ -18,19 +18,15 @@ const NotesPage = async () => {
       <ul className="grid">
         {notes.map((note) => (
           <li key={note.slug} className="group -mx-2 hover:bg-secondary">
-            <Link
-              href={ROUTES.note(note.slug)}
-              className="flex size-full items-start justify-between gap-8 p-2 hover:after:scale-x-0"
-            >
-              <div className="space-y-1">
+            <Link href={ROUTES.note(note.slug)} className="grid size-full gap-1 p-2 hover:after:scale-x-0">
+              <div className="flex items-start justify-between gap-x-4">
                 <h3>{note.frontmatter.title}</h3>
-                <p className="line-clamp-1 overflow-hidden text-ellipsis text-xs text-tertiary">
-                  {note.frontmatter.description}
-                </p>
+                <time dateTime={note.frontmatter.publishedAt} className="text-xs text-tertiary">
+                  {formatDate(note.frontmatter.publishedAt)}
+                </time>
               </div>
-              <time dateTime={note.frontmatter.publishedAt} className="shrink-0 text-xs text-tertiary">
-                {formatDate(note.frontmatter.publishedAt)}
-              </time>
+
+              <p className="text-xs text-tertiary">{note.frontmatter.description}</p>
             </Link>
           </li>
         ))}
