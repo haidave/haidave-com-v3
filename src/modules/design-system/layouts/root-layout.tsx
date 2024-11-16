@@ -6,6 +6,7 @@ import { Providers } from '@/lib/providers/providers'
 import { AnimatedFavicon } from '../components/animated-favicon'
 import { Footer } from '../components/footer'
 import { Header } from '../components/header/header'
+import { NoiseGrain } from '../components/noise-grain'
 import { geistMono } from '../theme/fonts'
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
@@ -20,6 +21,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
             <Header />
             {children}
             <Footer />
+            <NoiseGrain />
           </div>
         </Providers>
       </body>
