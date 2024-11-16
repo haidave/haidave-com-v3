@@ -4,6 +4,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react'
 import { usePathname } from 'next/navigation'
 
 const ANIMATION_DURATION = 200
+const FAVICON_SELECTOR = 'link[rel="icon"]'
 
 enum AnimationFrame {
   Frame1,
@@ -20,72 +21,80 @@ const faviconUrls = {
   },
 } as const
 
-/**
- * AnimatedFavicon Component
- *
- * This component manages an animated favicon that changes based on tab activity
- * and route changes.
- */
+// Memoize the animation sequence function
+const getNextFrame = (prev: AnimationFrame): AnimationFrame => {
+  switch (prev) {
+    case AnimationFrame.Frame1:
+      return AnimationFrame.Frame2
+    case AnimationFrame.Frame2:
+      return AnimationFrame.Final
+    default:
+      return AnimationFrame.Final
+  }
+}
+
 const AnimatedFavicon = () => {
   const pathname = usePathname()
   const [isActive, setIsActive] = useState(true)
   const [animationFrame, setAnimationFrame] = useState(AnimationFrame.Frame1)
   const [mounted, setMounted] = useState(false)
 
-  // Handle tab visibility changes
   const handleVisibilityChange = useCallback(() => {
-    setIsActive(!document.hidden)
-    if (!document.hidden) {
+    // Batch state updates
+    if (document.hidden) {
+      setIsActive(false)
+    } else {
+      setIsActive(true)
       setAnimationFrame(AnimationFrame.Frame1)
     }
   }, [])
 
-  // Handle route changes
-  useEffect(() => {
+  // Route change handler
+  const handleRouteChange = useCallback(() => {
     if (mounted) {
       setAnimationFrame(AnimationFrame.Frame1)
     }
-  }, [pathname, mounted])
+  }, [mounted])
 
-  // Set up event listeners
+  useEffect(() => {
+    handleRouteChange()
+  }, [pathname, handleRouteChange])
+
   useEffect(() => {
     setMounted(true)
     document.addEventListener('visibilitychange', handleVisibilityChange)
     return () => document.removeEventListener('visibilitychange', handleVisibilityChange)
   }, [handleVisibilityChange])
 
-  // Manage animation frames
   useEffect(() => {
-    if (isActive && animationFrame !== AnimationFrame.Final) {
-      const timer = setTimeout(() => {
-        setAnimationFrame((prev) => {
-          if (prev === AnimationFrame.Frame1) return AnimationFrame.Frame2
-          if (prev === AnimationFrame.Frame2) return AnimationFrame.Final
-          return AnimationFrame.Final
-        })
-      }, ANIMATION_DURATION)
-
-      return () => clearTimeout(timer)
+    if (!isActive || animationFrame === AnimationFrame.Final) {
+      return
     }
+
+    const timer = setTimeout(() => {
+      setAnimationFrame(getNextFrame)
+    }, ANIMATION_DURATION)
+
+    return () => clearTimeout(timer)
   }, [isActive, animationFrame])
 
-  // Determine current favicon URL
   const currentFaviconUrl = useMemo(() => {
     if (!isActive) return faviconUrls.idle
     return faviconUrls.active[animationFrame]
   }, [isActive, animationFrame])
 
-  // Update favicon
   useEffect(() => {
     if (!mounted) return
 
-    const favicon = document.querySelector('link[rel="icon"]')
-    if (favicon && favicon instanceof HTMLLinkElement) {
+    // Cache the favicon element reference
+    const favicon = document.querySelector<HTMLLinkElement>(FAVICON_SELECTOR)
+    if (!favicon) return
+
+    // Only update if the URL actually changed
+    if (favicon.href !== currentFaviconUrl) {
       favicon.href = currentFaviconUrl
     }
   }, [currentFaviconUrl, mounted])
-
-  if (!mounted) return null
 
   return null
 }
