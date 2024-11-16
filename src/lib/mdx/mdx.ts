@@ -12,85 +12,96 @@ type Frontmatter = {
   order?: number
 }
 
+type MDXDocument = {
+  frontmatter: Frontmatter
+  content: React.ReactNode
+  slug: string
+}
+
 type AdjacentDocument = {
   title: string
   slug: string
 } | null
 
-const basePath = process.cwd()
-const buildContentPath = (category: string) => path.join(basePath, 'src', 'modules', category, 'content')
+// Separate file system utilities
+const fsUtils = {
+  basePath: process.cwd(),
+  getContentPath: (category: string) => path.join(process.cwd(), 'src', 'modules', category, 'content'),
 
-export const getDocumentBySlug = async (category: string, slug: string) => {
-  const contentDir = buildContentPath(category)
-  const fileName = slug + '.mdx'
-  const filePath = path.join(contentDir, fileName)
-  const fileContent = fs.readFileSync(filePath, 'utf8')
+  fileExists: (filePath: string) => fs.existsSync(filePath),
 
-  const { frontmatter, content } = await compileMDX<Frontmatter>({
-    source: fileContent,
-    components: components,
-    options: {
-      parseFrontmatter: true,
-    },
-  })
+  readFile: (filePath: string) => fs.readFileSync(filePath, 'utf8'),
 
-  return {
-    frontmatter,
-    content,
-    slug: path.parse(fileName).name,
+  getMDXFiles: (contentDir: string) => fs.readdirSync(contentDir).filter((file) => path.extname(file) === '.mdx'),
+}
+
+// Document sorting utilities
+const sortUtils = {
+  byOrder: (a: MDXDocument, b: MDXDocument) => {
+    const orderA = a.frontmatter.order ?? Number.MAX_SAFE_INTEGER
+    const orderB = b.frontmatter.order ?? Number.MAX_SAFE_INTEGER
+    return orderA - orderB
+  },
+
+  byDate: (a: MDXDocument, b: MDXDocument) =>
+    new Date(b.frontmatter.publishedAt).getTime() - new Date(a.frontmatter.publishedAt).getTime(),
+}
+
+export const getDocumentBySlug = async (type: string, slug: string): Promise<MDXDocument | null> => {
+  try {
+    const contentDir = fsUtils.getContentPath(type)
+    const filePath = path.join(contentDir, `${slug}.mdx`)
+
+    if (!fsUtils.fileExists(filePath)) {
+      return null
+    }
+
+    const fileContent = fsUtils.readFile(filePath)
+    const { frontmatter, content } = await compileMDX<Frontmatter>({
+      source: fileContent,
+      components,
+      options: { parseFrontmatter: true },
+    })
+
+    return { frontmatter, content, slug }
+  } catch (error) {
+    console.error(`Error reading document ${slug}:`, error)
+    return null
   }
 }
 
-export const getDocuments = async (category: string) => {
-  const contentDir = buildContentPath(category)
-  const files = fs.readdirSync(contentDir)
+export const getDocuments = async (category: string): Promise<MDXDocument[]> => {
+  const contentDir = fsUtils.getContentPath(category)
+  const files = fsUtils.getMDXFiles(contentDir)
 
-  const documents = await Promise.all(
-    files
-      .filter((file) => path.extname(file) === '.mdx')
-      .map(async (file) => await getDocumentBySlug(category, path.parse(file).name))
-  )
+  const documents = await Promise.all(files.map((file) => getDocumentBySlug(category, path.parse(file).name)))
 
-  return documents.sort((a, b) => {
-    // First try to sort by order if it exists
-    const orderA = a.frontmatter.order ?? Number.MAX_SAFE_INTEGER
-    const orderB = b.frontmatter.order ?? Number.MAX_SAFE_INTEGER
-
-    if (orderA !== orderB) {
-      return orderA - orderB
-    }
-
-    // Then sort by publishedAt date (newest first)
-    return new Date(b.frontmatter.publishedAt).getTime() - new Date(a.frontmatter.publishedAt).getTime()
-  })
+  return documents
+    .filter((doc): doc is MDXDocument => doc !== null)
+    .sort((a, b) => {
+      const orderDiff = sortUtils.byOrder(a, b)
+      return orderDiff !== 0 ? orderDiff : sortUtils.byDate(a, b)
+    })
 }
 
 export const getAllSlugs = (category: string) => {
-  const contentDir = buildContentPath(category)
-  const files = fs.readdirSync(contentDir)
-  const slugs = files.map((file) => ({ slug: path.parse(file).name }))
-  return slugs
+  const contentDir = fsUtils.getContentPath(category)
+  const files = fsUtils.getMDXFiles(contentDir)
+  return files.map((file) => ({ slug: path.parse(file).name }))
 }
 
-export const getAdjacentDocuments = async (category: string, currentSlug: string) => {
+export const getAdjacentDocuments = async (
+  category: string,
+  currentSlug: string
+): Promise<{ previous: AdjacentDocument; next: AdjacentDocument }> => {
   const allDocuments = await getDocuments(category)
   const currentIndex = allDocuments.findIndex((doc) => doc.slug === currentSlug)
 
-  const previous: AdjacentDocument =
-    currentIndex > 0 && allDocuments[currentIndex - 1]
-      ? {
-          title: allDocuments[currentIndex - 1]?.frontmatter?.title ?? '',
-          slug: allDocuments[currentIndex - 1]?.slug ?? '',
-        }
-      : null
+  const createAdjacentDoc = (doc: MDXDocument | undefined): AdjacentDocument =>
+    doc ? { title: doc.frontmatter.title, slug: doc.slug } : null
 
-  const next: AdjacentDocument =
-    currentIndex < allDocuments.length - 1 && allDocuments[currentIndex + 1]
-      ? {
-          title: allDocuments[currentIndex + 1]?.frontmatter?.title ?? '',
-          slug: allDocuments[currentIndex + 1]?.slug ?? '',
-        }
-      : null
-
-  return { previous, next }
+  return {
+    previous: createAdjacentDoc(allDocuments[currentIndex - 1]),
+    next: createAdjacentDoc(allDocuments[currentIndex + 1]),
+  }
 }
