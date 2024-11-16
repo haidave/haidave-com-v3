@@ -11,10 +11,16 @@ const generateStaticParams = () => {
 
 const generateMetadata = async ({ params }: { params: Promise<{ slug: string }> }) => {
   const resolvedParams = await params
-  const component = await getDocumentBySlug('notes', resolvedParams.slug)
+  const note = await getDocumentBySlug('notes', resolvedParams.slug)
+
+  if (!note) {
+    return {
+      title: 'not found',
+    }
+  }
 
   return {
-    title: component.frontmatter.title,
+    title: note.frontmatter.title,
   }
 }
 

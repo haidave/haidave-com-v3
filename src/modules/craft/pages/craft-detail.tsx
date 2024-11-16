@@ -11,10 +11,16 @@ const generateStaticParams = () => {
 
 const generateMetadata = async ({ params }: { params: Promise<{ slug: string }> }) => {
   const resolvedParams = await params
-  const component = await getDocumentBySlug('craft', resolvedParams.slug)
+  const craft = await getDocumentBySlug('craft', resolvedParams.slug)
+
+  if (!craft) {
+    return {
+      title: 'not found',
+    }
+  }
 
   return {
-    title: component.frontmatter.title,
+    title: craft.frontmatter.title,
   }
 }
 

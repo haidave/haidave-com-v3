@@ -2,7 +2,6 @@ import { ROUTES } from '@/config/routes'
 import { formatDate } from '@/lib/formatters'
 import { getDocuments } from '@/lib/mdx/mdx'
 import { ButtonLink } from '@/modules/design-system/components/button-link'
-import { Link } from '@/modules/design-system/components/link'
 
 const NotesPage = async () => {
   const notes = await getDocuments('notes')
