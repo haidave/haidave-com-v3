@@ -5,26 +5,32 @@ const TOOLS = [
   {
     name: 'Arc',
     description: 'Innovative browser',
+    link: LINKS.arc,
   },
   {
     name: 'Cursor',
     description: 'AI-first code editor',
+    link: LINKS.cursor,
+  },
+  {
+    name: 'Eagle',
+    description: 'Inspiration organizer',
+    link: LINKS.eagle,
   },
   {
     name: 'Raycast',
     description: 'Spotlight on steroids',
+    link: LINKS.raycast,
   },
   {
     name: 'Rize',
-    description: 'Auto time tracker',
-  },
-  {
-    name: 'Spark',
-    description: 'All emails in one place',
+    description: 'Smart time tracker',
+    link: LINKS.rize,
   },
   {
     name: 'Warp',
     description: 'Modern terminal',
+    link: LINKS.warp,
   },
 ]
 
@@ -84,9 +90,14 @@ const AboutPage = () => {
         <h2 className="font-semibold text-primary">tools</h2>
         <ul className="grid grid-cols-3 text-secondary">
           {TOOLS.map((item) => (
-            <li key={item.name} className="grid content-start gap-y-0.5 border border-dashed p-2">
-              <span>{item.name}</span>
-              <p className="text-xs text-tertiary">{item.description}</p>
+            <li
+              key={item.name}
+              className="m-[-0.5px] border border-dashed transition hover:z-10 hover:border-secondary hover:bg-secondary"
+            >
+              <Link href={item.link} withoutUnderline isExternal className="grid size-full content-start gap-y-0.5 p-2">
+                <span>{item.name}</span>
+                <p className="text-xs text-tertiary">{item.description}</p>
+              </Link>
             </li>
           ))}
         </ul>

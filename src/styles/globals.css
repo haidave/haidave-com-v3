@@ -12,6 +12,7 @@
 
     /* Borders */
     --border-primary: #9ca3af;
+    --border-secondary: #e5e7eb;
 
     /* Text */
     --text-primary: #000000;
@@ -31,6 +32,7 @@
 
     /* Borders */
     --border-primary: #444444;
+    --border-secondary: #666666;
 
     /* Text */
     --text-primary: #ffffff;
