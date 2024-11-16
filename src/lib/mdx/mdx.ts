@@ -1,10 +1,6 @@
 import fs from 'fs'
 import path from 'path'
-import type { Element, Literal } from 'hast'
 import { compileMDX } from 'next-mdx-remote/rsc'
-import rehypePrettyCode from 'rehype-pretty-code'
-import githubDarkDefault from 'shiki/themes/github-dark-default.mjs'
-import { visit } from 'unist-util-visit'
 
 import { components } from './mdx-components'
 
@@ -12,49 +8,17 @@ type Frontmatter = {
   title: string
   description: string
   publishedAt: string
+  tags?: string[]
   order?: number
 }
 
+type AdjacentDocument = {
+  title: string
+  slug: string
+} | null
+
 const basePath = process.cwd()
 const buildContentPath = (category: string) => path.join(basePath, 'src', 'modules', category, 'content')
-
-// Extract raw code from `code` element nested inside `pre` tag and store value in `pre` node.
-// This need to be before `rehypePrettyCode` so that we get the raw value.
-const preprocessRawCode = (tree: Element) => {
-  visit(tree, (node) => {
-    if (!(node.type === 'element' && node.tagName === 'pre')) {
-      return
-    }
-
-    const [element] = node.children as Element[]
-
-    if (element?.tagName !== 'code') {
-      return
-    }
-
-    const [code] = element.children as (Literal & Text)[]
-
-    ;(node as Element & { raw?: string }).raw = code?.value
-  })
-}
-// Pass raw value found in `pre` node and store to figure[data-rehype-pretty-code-figure]
-// This need to be after `rehypePrettyCode` so the stored raw code can be moved to the target figure.
-const postprocessRawCode = (tree: Element) => {
-  visit(tree, (node) => {
-    if (
-      !(node.type === 'element' && node.tagName === 'figure') ||
-      !('data-rehype-pretty-code-figure' in node.properties)
-    ) {
-      return
-    }
-
-    for (const child of node.children as Element[]) {
-      if (child.tagName === 'pre') {
-        node.properties.raw = (node as Element & { raw?: string }).raw
-      }
-    }
-  })
-}
 
 export const getDocumentBySlug = async (category: string, slug: string) => {
   const contentDir = buildContentPath(category)
@@ -67,19 +31,6 @@ export const getDocumentBySlug = async (category: string, slug: string) => {
     components: components,
     options: {
       parseFrontmatter: true,
-      mdxOptions: {
-        rehypePlugins: [
-          () => preprocessRawCode,
-          [
-            rehypePrettyCode as never,
-            {
-              theme: githubDarkDefault,
-              keepBackground: false,
-            },
-          ],
-          () => postprocessRawCode,
-        ],
-      },
     },
   })
 
@@ -119,4 +70,27 @@ export const getAllSlugs = (category: string) => {
   const files = fs.readdirSync(contentDir)
   const slugs = files.map((file) => ({ slug: path.parse(file).name }))
   return slugs
+}
+
+export const getAdjacentDocuments = async (category: string, currentSlug: string) => {
+  const allDocuments = await getDocuments(category)
+  const currentIndex = allDocuments.findIndex((doc) => doc.slug === currentSlug)
+
+  const previous: AdjacentDocument =
+    currentIndex > 0 && allDocuments[currentIndex - 1]
+      ? {
+          title: allDocuments[currentIndex - 1]?.frontmatter?.title ?? '',
+          slug: allDocuments[currentIndex - 1]?.slug ?? '',
+        }
+      : null
+
+  const next: AdjacentDocument =
+    currentIndex < allDocuments.length - 1 && allDocuments[currentIndex + 1]
+      ? {
+          title: allDocuments[currentIndex + 1]?.frontmatter?.title ?? '',
+          slug: allDocuments[currentIndex + 1]?.slug ?? '',
+        }
+      : null
+
+  return { previous, next }
 }

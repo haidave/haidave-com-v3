@@ -4,6 +4,8 @@ import type { MDXComponents } from 'mdx/types'
 
 import { BlockQuote } from '@/modules/design-system/components/blockquote'
 import { CopyToClipboard } from '@/modules/design-system/components/copy-to-clipboard'
+import { Link } from '@/modules/design-system/components/link'
+import { ThemeSwitcher } from '@/modules/design-system/components/theme-switcher'
 
 interface FigureProps extends ComponentPropsWithoutRef<'figure'> {
   'data-rehype-pretty-code-figure'?: string
@@ -48,8 +50,8 @@ export const components: MDXComponents = {
       </div>
     )
   },
-
   pre: ({ ...props }) => <pre className="bg-subtle dark relative block py-6 [&>code]:grid" {...props} />,
-
   BlockQuote: BlockQuote,
+  Link: Link,
+  ThemeSwitcher: ThemeSwitcher,
 }
