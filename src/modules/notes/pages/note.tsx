@@ -1,5 +1,4 @@
 import { notFound } from 'next/navigation'
-import { ArrowLeftIcon } from 'lucide-react'
 
 import { ROUTES } from '@/config/routes'
 import { formatDate } from '@/lib/formatters'
@@ -17,10 +16,6 @@ const generateMetadata = async ({ params }: { params: Promise<{ slug: string }> 
   return {
     title: component.frontmatter.title,
   }
-}
-
-export const metadata = {
-  title: 'Notes',
 }
 
 const NotePage = async ({ params }: { params: Promise<{ slug: string }> }) => {
