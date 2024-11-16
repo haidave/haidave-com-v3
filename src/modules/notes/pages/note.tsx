@@ -15,7 +15,7 @@ const generateMetadata = async ({ params }: { params: Promise<{ slug: string }> 
 
   if (!note) {
     return {
-      title: 'Not Found',
+      title: 'not found',
     }
   }
 
