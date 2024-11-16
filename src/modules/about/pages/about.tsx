@@ -1,4 +1,5 @@
 import { LINKS } from '@/config/links'
+import { ButtonLink } from '@/modules/design-system/components/button-link'
 import { Link } from '@/modules/design-system/components/link'
 
 const TOOLS = [
@@ -90,14 +91,11 @@ const AboutPage = () => {
         <h2 className="font-semibold text-primary">tools</h2>
         <ul className="grid grid-cols-3 text-secondary">
           {TOOLS.map((item) => (
-            <li
-              key={item.name}
-              className="m-[-0.5px] border border-dashed transition hover:z-10 hover:border-secondary hover:bg-secondary"
-            >
-              <Link href={item.link} withoutUnderline isExternal className="grid size-full content-start gap-y-0.5 p-2">
+            <li key={item.name} className="m-[-0.5px]">
+              <ButtonLink href={item.link} isExternal className="grid size-full content-start gap-y-0.5 p-2">
                 <span>{item.name}</span>
                 <p className="text-xs text-tertiary">{item.description}</p>
-              </Link>
+              </ButtonLink>
             </li>
           ))}
         </ul>
