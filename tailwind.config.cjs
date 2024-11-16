@@ -31,6 +31,7 @@ module.exports = {
       },
       borderColor: {
         primary: 'var(--border-primary)',
+        secondary: 'var(--border-secondary)',
       },
       boxShadow: {
         focus: 'var(--shadow-focus)',
