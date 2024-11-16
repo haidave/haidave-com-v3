@@ -6,12 +6,11 @@ type LinkProps = {
   href: string
   isExternal?: boolean
   isActive?: boolean
-  withoutUnderline?: boolean
   children: React.ReactNode
   className?: string
 }
 
-export const Link = ({ href, isExternal, isActive, withoutUnderline, children, className }: LinkProps) => {
+const Link = ({ href, isExternal, isActive, children, className }: LinkProps) => {
   const target = isExternal ? '_blank' : undefined
   const rel = isExternal ? 'noopener noreferrer' : undefined
 
@@ -21,16 +20,16 @@ export const Link = ({ href, isExternal, isActive, withoutUnderline, children, c
       target={target}
       rel={rel}
       className={cn(
-        !withoutUnderline && 'group relative inline-flex items-center',
+        'group relative inline-flex items-center',
         'transition-all',
         'text-secondary hover:text-primary',
-        !withoutUnderline && [
-          'after:absolute after:bottom-0 after:left-0 after:h-px after:w-full',
-          'after:origin-bottom-right after:scale-x-0 after:border-b',
-          'after:border-dashed after:border-current after:transition-transform',
-          'hover:after:origin-bottom-left hover:after:scale-x-100',
-        ],
-        isActive && !withoutUnderline && 'text-primary after:scale-x-100 after:border-solid',
+
+        'after:absolute after:bottom-0 after:left-0 after:h-px after:w-full',
+        'after:origin-bottom-right after:scale-x-0 after:border-b',
+        'after:border-dashed after:border-current after:transition-transform',
+        'hover:after:origin-bottom-left hover:after:scale-x-100',
+
+        isActive && 'text-primary after:scale-x-100 after:border-solid',
         'focus-visible:shadow-focus focus-visible:outline-0',
         className
       )}
@@ -39,3 +38,5 @@ export const Link = ({ href, isExternal, isActive, withoutUnderline, children, c
     </NextLink>
   )
 }
+
+export { Link }
