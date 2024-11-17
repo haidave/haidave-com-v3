@@ -11,6 +11,14 @@ const LINKS = {
   // Projects
   everbase: 'https://www.everbase.io',
 
+  // Learning
+  animations: 'https://animations.dev',
+  interactiveSvgAnimations: 'https://courses.nan.fyi/svg/00-svg-foundations',
+
+  // People
+  emil: 'https://emilkowal.ski/',
+  nanda: 'https://www.nan.fyi/',
+
   // Tools
   arc: 'https://arc.net/gift/2fd22298',
   cursor: 'https://www.cursor.com/',
