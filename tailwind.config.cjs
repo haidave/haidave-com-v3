@@ -10,6 +10,9 @@ module.exports = {
   darkMode: 'class',
   theme: {
     extend: {
+      screens: {
+        xs: '425px',
+      },
       fontFamily: {
         mono: 'var(--font-mono)',
       },
