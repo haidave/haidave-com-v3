@@ -46,7 +46,7 @@ const AboutPage = () => {
             STRV
           </Link>{' '}
           as a Frontend Engineer. I&nbsp;take pride in&nbsp;my attention to detail and aim for prime user satisfaction.
-          When I&apos;m&nbsp;not coding, I&nbsp;enjoy living life and capturing moments with my camera.
+          When I&apos;m&nbsp;not coding, I&nbsp;try not to code and go outside with my camera.
         </p>
       </section>
 
@@ -83,6 +83,32 @@ const AboutPage = () => {
                 Heineken, Sunar, Generali and more.
               </p>
             </div>
+          </li>
+        </ul>
+      </section>
+
+      <section className="space-y-2">
+        <h2 className="font-semibold text-primary">active learning</h2>
+        <ul className="space-y-1 text-secondary">
+          <li className="flex items-center gap-2">
+            <span className="text-tertiary">&ndash;</span>
+            <Link href={LINKS.animations} isExternal>
+              animations.dev
+            </Link>
+            taught by
+            <Link href={LINKS.emil} isExternal>
+              Emil Kowalski
+            </Link>
+          </li>
+          <li className="flex items-center gap-2">
+            <span className="text-tertiary">&ndash;</span>
+            <Link href={LINKS.interactiveSvgAnimations} isExternal>
+              Interactive SVG Animations
+            </Link>{' '}
+            taught by{' '}
+            <Link href={LINKS.nanda} isExternal>
+              Nanda Syahrasyad
+            </Link>
           </li>
         </ul>
       </section>
