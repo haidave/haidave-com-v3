@@ -8,7 +8,7 @@ const CraftPage = async () => {
   return (
     <section className="space-y-3">
       <h2 className="font-semibold text-primary">craft</h2>
-      <ul className="grid grid-cols-3">
+      <ul className="grid xs:grid-cols-2 sm:grid-cols-3">
         {craft.map((craft) => (
           <li key={craft.slug} className="m-[-0.5px] aspect-square">
             <ButtonLink href={ROUTES.craftDetail(craft.slug)} className="grid size-full p-3">

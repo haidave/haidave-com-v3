@@ -1,7 +1,7 @@
 import { LINKS } from '@/config/links'
 import { Link } from '@/modules/design-system/components/link'
 
-const INTERESTS = ['Street Photography', 'Minimalism', 'UI/UX', 'Self-Development', 'Bouldering']
+const INTERESTS = ['Street Photography', 'Personal Branding', 'Self-Development', 'Minimalism', 'UI/UX', 'Bouldering']
 
 const STACK = [
   'React',
@@ -49,7 +49,7 @@ const HomePage = () => {
 
       <section className="space-y-2">
         <h2 className="font-semibold text-primary">interests</h2>
-        <ul className="space-y-1 text-secondary">
+        <ul className="grid space-y-1 text-secondary xs:grid-cols-2 sm:grid-cols-3">
           {INTERESTS.map((item) => (
             <li key={item} className="flex items-center gap-2">
               <span className="text-tertiary">&ndash;</span>
