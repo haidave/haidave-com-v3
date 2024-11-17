@@ -47,7 +47,7 @@ const CraftDetailPage = async ({ params }: { params: Promise<{ slug: string }> }
         </time>
       </div>
 
-      <div className="grid aspect-square place-items-center border border-dashed">{craft.content}</div>
+      <div className="grid aspect-square size-full place-items-center border border-dashed">{craft.content}</div>
 
       <div className="flex justify-between text-secondary">
         {previous ? (
