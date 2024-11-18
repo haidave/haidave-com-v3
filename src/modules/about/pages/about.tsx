@@ -92,30 +92,34 @@ const AboutPage = () => {
         <ul className="space-y-1 text-secondary">
           <li className="flex items-center gap-2">
             <span className="text-tertiary">&ndash;</span>
-            <Link href={LINKS.animations} isExternal>
-              animations.dev
-            </Link>
-            taught by
-            <Link href={LINKS.emil} isExternal>
-              Emil Kowalski
-            </Link>
+            <p>
+              <Link href={LINKS.animations} isExternal>
+                animations.dev
+              </Link>{' '}
+              taught by{' '}
+              <Link href={LINKS.emil} isExternal>
+                Emil Kowalski
+              </Link>
+            </p>
           </li>
           <li className="flex items-center gap-2">
             <span className="text-tertiary">&ndash;</span>
-            <Link href={LINKS.interactiveSvgAnimations} isExternal>
-              Interactive SVG Animations
-            </Link>{' '}
-            taught by{' '}
-            <Link href={LINKS.nanda} isExternal>
-              Nanda Syahrasyad
-            </Link>
+            <p>
+              <Link href={LINKS.interactiveSvgAnimations} isExternal>
+                Interactive SVG Animations
+              </Link>{' '}
+              taught by{' '}
+              <Link href={LINKS.nanda} isExternal>
+                Nanda Syahrasyad
+              </Link>
+            </p>
           </li>
         </ul>
       </section>
 
       <section className="space-y-2">
         <h2 className="font-semibold text-primary">tools</h2>
-        <ul className="grid grid-cols-3 text-secondary">
+        <ul className="grid grid-cols-2 text-secondary xs:grid-cols-3">
           {TOOLS.map((item) => (
             <li key={item.name} className="m-[-0.5px]">
               <ButtonLink href={item.link} isExternal className="grid size-full content-start gap-y-0.5 p-2">

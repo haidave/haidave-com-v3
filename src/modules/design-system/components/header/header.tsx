@@ -11,7 +11,7 @@ const HEADER_LINKS = [
 
 const Header = () => {
   return (
-    <header className="mb-8 flex justify-between">
+    <header className="mb-8 flex justify-between gap-x-8">
       <div>
         <Link href={ROUTES.home} className="gap-x-1.5 text-base font-bold text-primary">
           <div className="relative size-4">
@@ -21,10 +21,13 @@ const Header = () => {
           </div>
           haidave
         </Link>
-        <p className="text-xs text-tertiary">prague, czechia</p>
+        <p className="flex gap-x-0.5 text-xs text-tertiary">
+          <span>prague,</span>
+          <span>czechia</span>
+        </p>
       </div>
 
-      <ul className="flex gap-4">
+      <ul className="flex flex-wrap justify-end gap-x-4">
         {HEADER_LINKS.map((item) => (
           <HeaderLink key={item.name} href={item.href} label={item.name} />
         ))}
