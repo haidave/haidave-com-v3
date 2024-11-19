@@ -29,20 +29,24 @@ const HomePage = () => {
       <section className="space-y-2">
         <h2 className="font-semibold text-primary">now</h2>
         <ul className="space-y-1 text-secondary">
-          <li className="flex items-center gap-2">
+          <li className="flex gap-2">
             <span className="text-tertiary">&ndash;</span>
-            Frontend Engineer at{' '}
-            <Link href={LINKS.strv} isExternal>
-              STRV
-            </Link>
+            <p>
+              Frontend Engineer at{' '}
+              <Link href={LINKS.strv} isExternal>
+                STRV
+              </Link>
+            </p>
           </li>
-          <li className="flex items-center gap-2">
+          <li className="flex gap-2">
             <span className="text-tertiary">&ndash;</span>
-            Building{' '}
-            <Link href={LINKS.everbase} isExternal>
-              everbase.io
-            </Link>{' '}
-            in public
+            <p>
+              Building{' '}
+              <Link href={LINKS.everbase} isExternal>
+                everbase.io{' '}
+              </Link>{' '}
+              in public
+            </p>
           </li>
         </ul>
       </section>
@@ -51,9 +55,9 @@ const HomePage = () => {
         <h2 className="font-semibold text-primary">interests</h2>
         <ul className="grid space-y-1 text-secondary xs:grid-cols-2 sm:grid-cols-3">
           {INTERESTS.map((item) => (
-            <li key={item} className="flex items-center gap-2">
+            <li key={item} className="flex gap-2">
               <span className="text-tertiary">&ndash;</span>
-              {item}
+              <p>{item}</p>
             </li>
           ))}
         </ul>

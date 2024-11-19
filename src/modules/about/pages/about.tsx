@@ -90,7 +90,7 @@ const AboutPage = () => {
       <section className="space-y-2">
         <h2 className="font-semibold text-primary">active learning</h2>
         <ul className="space-y-1 text-secondary">
-          <li className="flex items-center gap-2">
+          <li className="flex gap-2">
             <span className="text-tertiary">&ndash;</span>
             <p>
               <Link href={LINKS.animations} isExternal>
@@ -102,7 +102,7 @@ const AboutPage = () => {
               </Link>
             </p>
           </li>
-          <li className="flex items-center gap-2">
+          <li className="flex gap-2">
             <span className="text-tertiary">&ndash;</span>
             <p>
               <Link href={LINKS.interactiveSvgAnimations} isExternal>
