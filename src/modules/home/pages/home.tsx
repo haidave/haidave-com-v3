@@ -38,14 +38,28 @@ const HomePage = () => {
               </Link>
             </p>
           </li>
+        </ul>
+      </section>
+
+      <section className="space-y-2">
+        <h2 className="font-semibold text-primary">selected work</h2>
+        <ul className="space-y-1 text-secondary">
           <li className="flex gap-2">
             <span className="text-tertiary">&ndash;</span>
             <p>
-              Building{' '}
               <Link href={LINKS.everbase} isExternal>
-                everbase.io{' '}
+                everbase
               </Link>{' '}
-              in public
+              <span className="text-xs text-tertiary">[brain dump your ideas]</span>
+            </p>
+          </li>
+          <li className="flex gap-2">
+            <span className="text-tertiary">&ndash;</span>
+            <p>
+              <Link href={LINKS.sleekui} isExternal>
+                SleekUI
+              </Link>{' '}
+              <span className="text-xs text-tertiary">[polished component library]</span>
             </p>
           </li>
         </ul>
