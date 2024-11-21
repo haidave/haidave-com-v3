@@ -18,7 +18,7 @@ type MDXDocument = {
   slug: string
 }
 
-type AdjacentDocument = {
+export type AdjacentDocument = {
   title: string
   slug: string
 } | null

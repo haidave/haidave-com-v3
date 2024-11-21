@@ -5,6 +5,8 @@ import { formatDate } from '@/lib/formatters'
 import { getAdjacentDocuments, getAllSlugs, getDocumentBySlug } from '@/lib/mdx/mdx'
 import { Link } from '@/modules/design-system/components/link'
 
+import { CraftPager } from '../components/craft-pager/craft-pager'
+
 const generateStaticParams = () => {
   return getAllSlugs('craft')
 }
@@ -49,23 +51,7 @@ const CraftDetailPage = async ({ params }: { params: Promise<{ slug: string }> }
 
       <div className="grid aspect-square size-full place-items-center border border-dashed">{craft.content}</div>
 
-      <div className="flex justify-between text-secondary">
-        {previous ? (
-          <Link href={ROUTES.craftDetail(previous.slug)} className="gap-1.5">
-            <span>←</span> {previous.title}
-          </Link>
-        ) : (
-          <div />
-        )}
-
-        {next ? (
-          <Link href={ROUTES.craftDetail(next.slug)} className="gap-1.5">
-            {next.title} <span>→</span>
-          </Link>
-        ) : (
-          <div />
-        )}
-      </div>
+      <CraftPager previous={previous} next={next} />
     </section>
   )
 }
