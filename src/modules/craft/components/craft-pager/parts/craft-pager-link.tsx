@@ -23,28 +23,18 @@ const CraftPagerLink = ({ type, document }: CraftPagerLinkProps) => {
     >
       <div className={cn('flex gap-1.5 text-tertiary', !isPrevious && 'justify-end')}>
         {isPrevious ? (
-          <>
-            <span>←</span>
-            <span className="text-tertiary">previous</span>
-          </>
+          <div className="flex items-center gap-1.5 text-xs text-tertiary transition-colors group-hover:text-secondary">
+            <span className="text-sm">←</span>
+            <span>previous</span>
+          </div>
         ) : (
-          <>
-            <span className="text-tertiary">next</span>
-            <span>→</span>
-          </>
+          <div className="flex items-center gap-1.5 text-xs text-tertiary transition-colors group-hover:text-secondary">
+            <span>next</span>
+            <span className="text-sm">→</span>
+          </div>
         )}
       </div>
-      <span
-        className={cn(
-          'relative transition-all',
-          'after:absolute after:bottom-0 after:left-0 after:h-px after:w-full',
-          'after:origin-bottom-right after:scale-x-0 after:border-b',
-          'after:border-dashed after:border-current after:transition-transform',
-          'group-hover:after:origin-bottom-left group-hover:after:scale-x-100'
-        )}
-      >
-        {document.title}
-      </span>
+      <span className="link-underline">{document.title}</span>
     </NextLink>
   )
 }
