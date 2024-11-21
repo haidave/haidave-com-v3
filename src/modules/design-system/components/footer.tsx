@@ -11,7 +11,7 @@ const SOCIALS = [
 const Footer = () => {
   return (
     <footer className="mt-8 flex items-center justify-between">
-      <div className="flex gap-4">
+      <div className="flex gap-4 text-secondary">
         {SOCIALS.map((item) => (
           <Link key={item.name} isExternal href={item.link}>
             {item.name}

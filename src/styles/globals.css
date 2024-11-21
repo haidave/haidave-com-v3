@@ -45,6 +45,34 @@
   }
 }
 
+/* Custom Utilities */
+@layer utilities {
+  /* Link underline */
+  .link-underline {
+    @apply relative transition-all;
+  }
+  .link-underline::after {
+    content: '';
+    @apply absolute bottom-0 left-0 h-px w-full;
+    @apply origin-bottom-right scale-x-0 border-b;
+    @apply border-dashed border-current transition-transform;
+  }
+  /* Direct hover */
+  .link-underline:hover {
+    @apply text-primary;
+  }
+  .link-underline:hover::after {
+    @apply origin-bottom-left scale-x-100;
+  }
+  /* Group hover */
+  .group:hover .link-underline {
+    @apply text-primary;
+  }
+  .group:hover .link-underline::after {
+    @apply origin-bottom-left scale-x-100;
+  }
+}
+
 /* Custom CSS Reset from https://www.joshwcomeau.com/css/custom-css-reset/ */
 *,
 *::before,
