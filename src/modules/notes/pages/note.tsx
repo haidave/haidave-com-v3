@@ -39,9 +39,13 @@ const NotePage = async ({ params }: { params: Promise<{ slug: string }> }) => {
           <span className="text-sm">←</span> back
         </Link>
 
-        <h2>{note.frontmatter.title}</h2>
+        <h2 style={{ viewTransitionName: `note-title-${note.slug}` }}>{note.frontmatter.title}</h2>
 
-        <time dateTime={note.frontmatter.publishedAt} className="text-xs text-tertiary">
+        <time
+          dateTime={note.frontmatter.publishedAt}
+          style={{ viewTransitionName: `note-date-${note.slug}` }}
+          className="text-xs text-tertiary"
+        >
           {formatDate(note.frontmatter.publishedAt)}
         </time>
       </div>

@@ -1,4 +1,4 @@
-import NextLink from 'next/link'
+import { Link as NextLink } from 'next-view-transitions'
 
 import { ROUTES } from '@/config/routes'
 import { AdjacentDocument } from '@/lib/mdx/mdx'
@@ -19,7 +19,7 @@ const CraftPagerLink = ({ type, document }: CraftPagerLinkProps) => {
   return (
     <NextLink
       href={ROUTES.craftDetail(document.slug)}
-      className={cn('group flex flex-col gap-0.5', isPrevious ? 'items-start' : 'items-end')}
+      className={cn('group flex flex-col gap-px', isPrevious ? 'items-start' : 'items-end')}
     >
       <div className={cn('flex gap-1.5 text-tertiary', !isPrevious && 'justify-end')}>
         {isPrevious ? (

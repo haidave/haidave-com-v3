@@ -1,4 +1,5 @@
 import { ROUTES } from '@/config/routes'
+import { formatDate } from '@/lib/formatters'
 import { getDocuments } from '@/lib/mdx/mdx'
 import { ButtonLink } from '@/modules/design-system/components/button-link'
 
@@ -13,7 +14,14 @@ const CraftPage = async () => {
           <li key={craft.slug} className="m-[-0.5px] aspect-square">
             <ButtonLink href={ROUTES.craftDetail(craft.slug)} className="grid size-full p-3">
               <div className="space-y-1">
-                <h3>{craft.frontmatter.title}</h3>
+                <h3
+                  style={{
+                    viewTransitionName: `craft-title-${craft.slug}`,
+                  }}
+                  className="inline-flex"
+                >
+                  {craft.frontmatter.title}
+                </h3>
                 <p className="mt-auto text-xs text-tertiary">{craft.frontmatter.description}</p>
               </div>
 

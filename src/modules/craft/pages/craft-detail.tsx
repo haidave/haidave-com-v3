@@ -42,7 +42,9 @@ const CraftDetailPage = async ({ params }: { params: Promise<{ slug: string }> }
           <span className="text-sm">←</span> back
         </Link>
 
-        <h2>{craft.frontmatter.title}</h2>
+        <h2 style={{ viewTransitionName: `craft-title-${craft.slug}` }} className="inline-flex">
+          {craft.frontmatter.title}
+        </h2>
 
         <time dateTime={craft.frontmatter.publishedAt} className="text-xs text-tertiary">
           {formatDate(craft.frontmatter.publishedAt)}
