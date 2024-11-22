@@ -14,8 +14,12 @@ const NotesPage = async () => {
           <li key={note.slug} className="group -mx-2">
             <ButtonLink href={ROUTES.note(note.slug)} withoutBorder className="grid size-full gap-1 p-2">
               <div className="flex items-start justify-between gap-x-4">
-                <h3>{note.frontmatter.title}</h3>
-                <time dateTime={note.frontmatter.publishedAt} className="text-xs text-tertiary">
+                <h3 style={{ viewTransitionName: `note-title-${note.slug}` }}>{note.frontmatter.title}</h3>
+                <time
+                  dateTime={note.frontmatter.publishedAt}
+                  style={{ viewTransitionName: `note-date-${note.slug}` }}
+                  className="text-xs text-tertiary"
+                >
                   {formatDate(note.frontmatter.publishedAt)}
                 </time>
               </div>

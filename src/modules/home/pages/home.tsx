@@ -38,6 +38,10 @@ const HomePage = () => {
               </Link>
             </p>
           </li>
+          <li className="flex gap-2">
+            <span className="text-tertiary">&ndash;</span>
+            <p>Open to new opportunities</p>
+          </li>
         </ul>
       </section>
 
