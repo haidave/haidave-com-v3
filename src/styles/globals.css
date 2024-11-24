@@ -22,6 +22,12 @@
 
     /* Box Shadow */
     --shadow-focus: 0 0 0 2px var(--bg-primary), 0 0 0 3px var(--text-primary);
+
+    /* Theme Transition Animation Paths */
+    --clip-dark-from: polygon(50% -71%, -50% 71%, -50% 71%, 50% -71%);
+    --clip-dark-to: polygon(50% -71%, -50% 71%, 50% 171%, 171% 50%);
+    --clip-light-from: polygon(171% 50%, 50% 171%, 50% 171%, 171% 50%);
+    --clip-light-to: polygon(171% 50%, 50% 171%, -50% 71%, 50% -71%);
   }
 
   .dark {
@@ -164,4 +170,43 @@ h6 {
 ::selection {
   background-color: var(--bg-primary-reverse);
   color: var(--text-primary-reverse);
+}
+
+/* Theme Transition */
+/* https://theme-toggle.rdsx.dev/ */
+.theme-transition::view-transition-group(root) {
+  animation-duration: 0.5s;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1); /* expo-out */
+}
+
+.theme-transition::view-transition-new(root) {
+  animation-name: reveal-light;
+}
+
+.theme-transition::view-transition-old(root),
+.theme-transition.dark::view-transition-old(root) {
+  animation: none;
+  z-index: -1;
+}
+
+.theme-transition.dark::view-transition-new(root) {
+  animation-name: reveal-dark;
+}
+
+@keyframes reveal-dark {
+  from {
+    clip-path: var(--clip-dark-from);
+  }
+  to {
+    clip-path: var(--clip-dark-to);
+  }
+}
+
+@keyframes reveal-light {
+  from {
+    clip-path: var(--clip-light-from);
+  }
+  to {
+    clip-path: var(--clip-light-to);
+  }
 }
