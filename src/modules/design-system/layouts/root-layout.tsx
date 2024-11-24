@@ -17,11 +17,13 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
       </head>
       <body className={`${geistMono.variable} bg-primary font-mono text-sm text-primary`}>
         <Providers>
-          <div className="mx-auto w-full max-w-[680px] px-6 py-8 sm:pt-16">
-            <Header />
-            {children}
-            <Footer />
-            <NoiseGrain />
+          <div className="flex w-screen flex-col items-center justify-center">
+            <div className="mx-auto w-full max-w-[680px] px-6 py-8 sm:pt-16">
+              <Header />
+              {children}
+              <Footer />
+              <NoiseGrain />
+            </div>
           </div>
         </Providers>
       </body>
