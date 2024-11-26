@@ -2,6 +2,8 @@ import { LINKS } from '@/config/links'
 import { Link } from '@/modules/design-system/components/link'
 import { ThemeSwitcher } from '@/modules/design-system/components/theme-switcher'
 
+import { EmailButton } from './email-button'
+
 const SOCIALS = [
   { name: '𝕏', link: LINKS.x },
   { name: 'GitHub', link: LINKS.github },
@@ -17,6 +19,7 @@ const Footer = () => {
             {item.name}
           </Link>
         ))}
+        <EmailButton />
       </div>
 
       <ThemeSwitcher />
