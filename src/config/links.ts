@@ -10,7 +10,7 @@ const LINKS = {
   dentsu: 'https://www.dentsucreative.com/location/prague',
 
   // Projects
-  everbase: 'https://www.everbase.io/',
+  everbase: 'https://everbase.vercel.app/',
   sleekui: 'https://sleekui.vercel.app/',
 
   // Learning
