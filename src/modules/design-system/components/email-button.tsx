@@ -41,11 +41,11 @@ const EmailButton = () => {
         <AnimatePresence mode="wait" initial={false}>
           {isCopied ? (
             <motion.span key="checkmark" variants={variants} initial="hidden" animate="visible" exit="hidden">
-              <CheckIcon size={14} />
+              <CheckIcon size={12} />
             </motion.span>
           ) : (
             <motion.span key="copy" variants={variants} initial="hidden" animate="visible" exit="hidden">
-              <CopyIcon size={14} className="opacity-100" />
+              <CopyIcon size={12} className="opacity-100" />
             </motion.span>
           )}
         </AnimatePresence>
