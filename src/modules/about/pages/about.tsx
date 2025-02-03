@@ -4,6 +4,11 @@ import { Link } from '@/modules/design-system/components/link'
 
 const TOOLS = [
   {
+    name: 'Apple Notes',
+    description: 'Simplicity at its best',
+    link: LINKS.appleNotes,
+  },
+  {
     name: 'Arc',
     description: 'Innovative browser',
     link: LINKS.arc,
@@ -22,11 +27,6 @@ const TOOLS = [
     name: 'Raycast',
     description: 'Spotlight on steroids',
     link: LINKS.raycast,
-  },
-  {
-    name: 'Rize',
-    description: 'Smart time tracker',
-    link: LINKS.rize,
   },
   {
     name: 'Warp',
