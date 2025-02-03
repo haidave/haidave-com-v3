@@ -22,11 +22,11 @@ const LINKS = {
   nanda: 'https://www.nan.fyi/',
 
   // Tools
+  appleNotes: 'https://www.icloud.com/notes/',
   arc: 'https://arc.net/gift/2fd22298',
   cursor: 'https://www.cursor.com/',
   eagle: 'https://eagle.cool/',
   raycast: 'https://www.raycast.com/',
-  rize: 'https://rize.io?code=B2F6F1&utm_source=refer&name=Dave',
   warp: 'https://www.warp.dev/',
 } as const
 
