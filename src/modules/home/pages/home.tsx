@@ -1,7 +1,7 @@
 import { LINKS } from '@/config/links'
 import { Link } from '@/modules/design-system/components/link'
 
-const INTERESTS = ['Street Photography', 'Personal Branding', 'Self-Development', 'Minimalism', 'UI/UX', 'Bouldering']
+const INTERESTS = ['Street Photography', 'Technology', 'Self-Development', 'Minimalism', 'UI/UX', 'Bouldering']
 
 const STACK = [
   'React',
@@ -54,16 +54,16 @@ const HomePage = () => {
               <Link href={LINKS.everbase} isExternal>
                 everbase
               </Link>{' '}
-              <span className="text-xs text-tertiary">[brain dump your ideas]</span>
+              <span className="text-xs text-tertiary">[personal timeline for your thoughts]</span>
             </p>
           </li>
           <li className="flex gap-2">
             <span className="text-tertiary">&ndash;</span>
             <p>
-              <Link href={LINKS.sleekui} isExternal>
-                SleekUI
+              <Link href={LINKS.stealth} isExternal>
+                Stealth
               </Link>{' '}
-              <span className="text-xs text-tertiary">[polished component library]</span>
+              <span className="text-xs text-tertiary">[elegant landing page with docs]</span>
             </p>
           </li>
         </ul>
