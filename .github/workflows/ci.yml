@@ -3,19 +3,14 @@ name: Continuous Integration
 on: [pull_request]
 
 jobs:
-  testAndBuild:
-    name: Test and build
+  quality:
+    name: Code Quality
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 10
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
-      - name: Install Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
 
       - name: Setup bun
         uses: oven-sh/setup-bun@v1
@@ -25,5 +20,5 @@ jobs:
       - name: Install dependencies
         run: bun install
 
-      - name: Validate Code Formatting
-        run: bun format:validate
+      - name: Type check
+        run: bun typecheck
