@@ -11,7 +11,7 @@ const LINKS = {
 
   // Projects
   everbase: 'https://everbase.vercel.app/',
-  sleekui: 'https://sleekui.vercel.app/',
+  stealth: 'https://stealth-alpha.vercel.app/',
 
   // Learning
   animations: 'https://animations.dev',

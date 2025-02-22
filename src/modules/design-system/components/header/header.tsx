@@ -5,7 +5,7 @@ import { HeaderLink } from './parts/header-link'
 
 const HEADER_LINKS = [
   { name: 'about', href: ROUTES.about },
-  { name: 'craft', href: ROUTES.craft },
+  // { name: 'craft', href: ROUTES.craft },
   { name: 'notes', href: ROUTES.notes },
 ]
 
