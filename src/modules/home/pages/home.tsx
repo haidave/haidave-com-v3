@@ -3,7 +3,7 @@ import { Link } from '@/modules/design-system/components/link'
 
 const INTERESTS = ['Street Photography', 'Technology', 'Self-Development', 'Minimalism', 'UI/UX', 'Bouldering']
 
-export const STACK = [
+const STACK = [
   'React',
   'Next.js',
   'Vercel',
