@@ -45,9 +45,6 @@
     --text-primary-reverse: #000000;
     --text-secondary: #d1d5db;
     --text-tertiary: #666666;
-
-    /* Box Shadow */
-    --shadow-focus: 0 0 0 2px var(--bg-primary), 0 0 0 3px var(--text-primary);
   }
 }
 
