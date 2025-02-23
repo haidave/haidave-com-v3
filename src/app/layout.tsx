@@ -5,7 +5,7 @@ export const metadata: Metadata = {
     default: 'haidave',
     template: '%s | haidave',
   },
-  description: 'my personal space representing both me and my work.',
+  description: 'Frontend Engineer / Open to new opportunities',
   icons: {
     icon: '/images/icon.png',
     shortcut: '/images/icon.png',
