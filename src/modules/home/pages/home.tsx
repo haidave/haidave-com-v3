@@ -10,11 +10,12 @@ const STACK = [
   'Typescript',
   'Supabase',
   'TanStack Query',
+  'TanStack Router',
   'Zustand',
   'Playwright',
-  'Framer Motion',
-  'Tailwind CSS',
-  'shadcn/ui',
+  'Motion',
+  'GSAP',
+  'TailwindCSS',
 ]
 
 const HomePage = () => {
@@ -51,19 +52,19 @@ const HomePage = () => {
           <li className="flex gap-2">
             <span className="text-tertiary">&ndash;</span>
             <p>
-              <Link href={LINKS.everbase} isExternal>
-                everbase
+              <Link href={LINKS.aisle} isExternal>
+                aisle.com
               </Link>{' '}
-              <span className="text-xs text-tertiary">[personal timeline for your thoughts]</span>
+              <span className="text-xs text-tertiary">[custom marketing site for cybersecurity startup]</span>
             </p>
           </li>
           <li className="flex gap-2">
             <span className="text-tertiary">&ndash;</span>
             <p>
-              <Link href={LINKS.stealth} isExternal>
-                Stealth
+              <Link href={LINKS.everbase} isExternal>
+                everbase
               </Link>{' '}
-              <span className="text-xs text-tertiary">[elegant landing page with docs]</span>
+              <span className="text-xs text-tertiary">[personal timeline for your thoughts]</span>
             </p>
           </li>
         </ul>
