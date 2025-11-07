@@ -16,10 +16,12 @@ const LINKS = {
 
   // Learning
   animations: 'https://animations.dev',
-  interactiveSvgAnimations: 'https://courses.nan.fyi/svg/00-svg-foundations',
+  devouringDetails: 'https://devouringdetails.com/',
+  interactiveSvgAnimations: 'https://www.svg-animations.how/',
 
   // People
   emil: 'https://emilkowal.ski/',
+  rauno: 'https://rauno.me/',
   nanda: 'https://www.nan.fyi/',
 
   // Tools

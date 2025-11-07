@@ -94,11 +94,23 @@ const AboutPage = () => {
             <span className="text-tertiary">&ndash;</span>
             <p>
               <Link href={LINKS.animations} isExternal>
-                animations.dev
+                Animations on the Web
               </Link>{' '}
               taught by{' '}
               <Link href={LINKS.emil} isExternal>
                 Emil Kowalski
+              </Link>
+            </p>
+          </li>
+          <li className="flex gap-2">
+            <span className="text-tertiary">&ndash;</span>
+            <p>
+              <Link href={LINKS.devouringDetails} isExternal>
+                Devouring Details
+              </Link>{' '}
+              taught by{' '}
+              <Link href={LINKS.rauno} isExternal>
+                Rauno Freiberg
               </Link>
             </p>
           </li>
