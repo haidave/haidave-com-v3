@@ -34,6 +34,7 @@ module.exports = {
       },
       borderColor: {
         primary: 'var(--border-primary)',
+        'primary-reverse': 'var(--border-primary-reverse)',
         secondary: 'var(--border-secondary)',
       },
       boxShadow: {

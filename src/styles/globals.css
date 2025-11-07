@@ -6,7 +6,7 @@
 @layer base {
   :root {
     /* Backgrounds */
-    --bg-primary: #ffffff;
+    --bg-primary: #fafafa;
     --bg-primary-reverse: #000000;
     --bg-secondary: #f3f4f6;
 
@@ -16,7 +16,7 @@
 
     /* Text */
     --text-primary: #000000;
-    --text-primary-reverse: #ffffff;
+    --text-primary-reverse: #fafafa;
     --text-secondary: #374151;
     --text-tertiary: #6b7280;
 
@@ -33,7 +33,7 @@
   .dark {
     /* Backgrounds */
     --bg-primary: #000000;
-    --bg-primary-reverse: #ffffff;
+    --bg-primary-reverse: #fafafa;
     --bg-secondary: #111111;
 
     /* Borders */
@@ -41,9 +41,9 @@
     --border-secondary: #666666;
 
     /* Text */
-    --text-primary: #ffffff;
+    --text-primary: #fafafa;
     --text-primary-reverse: #000000;
-    --text-secondary: #d1d5db;
+    --text-secondary: #d4d4d4;
     --text-tertiary: #666666;
   }
 }

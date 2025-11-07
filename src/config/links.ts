@@ -10,15 +10,18 @@ const LINKS = {
   dentsu: 'https://www.dentsucreative.com/location/prague',
 
   // Projects
+  aisle: 'https://aisle.com/',
   everbase: 'https://everbase.vercel.app/',
   stealth: 'https://stealth-alpha.vercel.app/',
 
   // Learning
   animations: 'https://animations.dev',
-  interactiveSvgAnimations: 'https://courses.nan.fyi/svg/00-svg-foundations',
+  devouringDetails: 'https://devouringdetails.com/',
+  interactiveSvgAnimations: 'https://www.svg-animations.how/',
 
   // People
   emil: 'https://emilkowal.ski/',
+  rauno: 'https://rauno.me/',
   nanda: 'https://www.nan.fyi/',
 
   // Tools
